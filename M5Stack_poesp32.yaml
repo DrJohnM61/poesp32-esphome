@@ -1,0 +1,33 @@
+
+esphome:
+  name: m5stack
+  friendly_name: Gate Control
+
+esp32:
+  board: m5stack-core-esp32
+
+# Enable logging
+logger:
+
+ethernet:
+  type: IP101
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO0_IN
+  power_pin: GPIO5  
+  phy_addr: 1
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "MpjOHfRgTREDTh3wsqfMvOQmOmy7SN/nALAOXFNLMcQ="
+switch:
+  - platform: gpio
+    id: gate_relay16
+    pin: GPIO16
+    name: "Gate Switch 16"
+
+  - platform: gpio
+    id: gate_relay17
+    pin: GPIO17
+    name: "Gate Switch 17"
