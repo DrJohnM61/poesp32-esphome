@@ -1,3 +1,0 @@
-Note that the black and red cables are Ground and +ve and the yellow cable is connected to GPIO 16. They just so happen to fit the three pins on the relay (-ve, +ve, Signal).
-
-The centre and lower pin (as seen on the photo) close when the signal is high (switch on). The centre and higher pin (as seen on the phot0) close when the signal is low (switch off).
