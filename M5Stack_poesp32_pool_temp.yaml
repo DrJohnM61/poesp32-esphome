@@ -1,0 +1,43 @@
+
+esphome:
+  name: poesp32_pool_temp_1
+  friendly_name: PoESP32 Pool Sensor #1
+
+esp32:
+  board: m5stack-core-esp32
+
+# Enable logging
+logger:
+
+ethernet:
+  type: IP101
+  mdc_pin: GPIO23
+  mdio_pin: GPIO18
+  clk_mode: GPIO0_IN
+  power_pin: GPIO5  
+  phy_addr: 1
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "MpjOHfRgTREDPh3wsqfMvOQmOmy7SN/nALAOXFNLMcQ="
+
+switch:
+  - platform: gpio
+    id: gate_relay16
+    pin: GPIO16
+    name: "Relay Switch 16"
+  - platform: safe_mode
+    name: "Pool Temp 1 Restart (Safe Mode)"
+
+button:
+  - platform: restart
+    name: "Pool Temp 1 Restart"
+
+dallas:
+  - pin: GPIO17
+
+sensor:
+  - platform: dallas
+    index: 0
+    name: "Pool Temperature #1"
